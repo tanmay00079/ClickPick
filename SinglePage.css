@@ -1,0 +1,710 @@
+:root {
+    --white: #fff;
+    --black: #222;
+    --pink: #DE79FA;
+    --grey: #444;
+    --grey2: #959595;
+    --grey-alt: #E8F8F5;
+    --yellow: #ffd800;
+    --green: #59b210;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  
+  body {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--black);
+    background-color: var(--white);
+    z-index: -1;
+  }
+  
+  li,
+  ul {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .container {
+    max-width: 114rem;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 1200px) {
+    .container {
+      padding: 0 3rem;
+    }
+  }
+  @media only screen and (max-width: 1200px) {
+    .container {
+      padding: 0 5rem;
+    }
+  }
+  
+
+  
+  @media only screen and (max-width: 567px) {
+    .loader {
+      background-size: 20rem;
+    }
+  }
+  
+  /* Header */
+  
+  .advert {
+    line-height: 3rem;
+    height: 3rem;
+    background-color: var(--pink);
+    text-align: center;
+    color: var(--white);
+    font-weight: 500;
+  }
+  
+  .navigation {
+    padding: 1.6rem 0;
+  }
+  
+  .nav-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-top {
+    display: none;
+  }
+  
+  .logo {
+    color: var(--black);
+  }
+  
+  .logo span {
+    color: var(--pink);
+  }
+  
+  .nav-list {
+    display: flex;
+    align-items: center;
+  }
+  
+  .fix-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1200;
+    background-color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-item:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+  
+  .nav-item {
+    padding: 0 1rem;
+  }
+  
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0 0.2rem;
+    font-size: 1.5rem;
+    color: var(--black);
+    text-transform: uppercase;
+    transition: all 500ms ease-in-out;
+  }
+  
+  .nav-link::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    top: 100%;
+    left: 0;
+    background: var(--pink);
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .nav-icons span:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+  
+  .nav-icons span {
+    font-size: 1.6rem;
+    border-radius: 50%;
+    border: 1px solid var(--grey);
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .nav-icons span:hover {
+    background-color: var(--pink);
+  }
+  
+  .nav-icons .fas {
+    transition: all 300ms ease-in-out;
+  }
+  
+  .nav-icons span:hover .fas {
+    color: var(--white);
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 996px) {
+    .nav-item:not(:last-child) {
+      margin-right: 0.3rem;
+    }
+  
+    .nav-item {
+      padding: 0 0.5rem;
+    }
+  
+    .nav-link {
+      font-size: 1.4rem;
+    }
+  
+    .nav-icons span {
+      font-size: 1.2rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .navigation.show {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100vh;
+      z-index: 9990;
+      background-color: var(--white);
+      transition: all 500ms linear;
+    }
+  
+    .nav-menu.show {
+      left: 0;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: start;
+      padding: 2rem 0;
+    }
+  
+    .nav-menu .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+  
+    .nav-menu .logo h1 span {
+      color: var(--white);
+    }
+  
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--pink);
+      padding: 1.6rem 2rem;
+    }
+  
+    .hamburger {
+      display: block;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+  
+    .close {
+      font-size: 2rem;
+      color: var(--white);
+      cursor: pointer;
+    }
+  
+    .nav-item {
+      width: 100%;
+      padding: 0;
+    }
+  
+    .nav-item:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  
+    .nav-link {
+      font-size: 1.8rem;
+      width: 100%;
+      padding: 1rem 2rem;
+    }
+  
+    .nav-icons span {
+      display: none;
+      border: none;
+      font-size: 1.6rem;
+    }
+  
+    .nav-icons span:last-child {
+      display: block;
+    }
+  
+    body.show::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+  }
+  
+
+
+.dropdown{
+height: 100%;
+width: 100%;
+border: 1px solid lightgrey;
+text-align: center;
+padding:10%;
+}
+
+.categories{display:inline-block;
+height: 10%;
+width: 17%;
+margin-left:2%
+
+}
+
+.content{
+ display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 17%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.content a:hover {
+background-color: #F6DDFC;
+color: navy}
+
+.categories:hover .content {display: block;}
+
+.fills{
+border: 2px solid black;
+width: 10%;
+height: 3%;
+margin-left: 2%;
+margin-right: 5%;
+border: 1px solid lightgrey
+}
+
+
+.clothing_container{
+width: 100%;
+height: 100%;
+display:flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+}
+
+.clothings{
+height: 70%;
+width: 22%;
+margin-top: 5%;;
+}
+
+.clothing_imgs{
+height: 80%;
+width: 100%;
+background-position:center;
+background-size:contain;
+background-repeat: no-repeat
+}
+
+
+.clothing_imgs ul{
+display: flex;
+justify-content: center;
+width: 17rem;
+height: 5rem;
+background-color: rgba(255,255,255,0.5);
+position: relative;
+top: 40%;
+left: 25%;
+visibility: hidden;
+opacity:0;
+}
+
+.clothing_imgs:hover ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+.clothing_imgs:hover ul i {
+    color: var(--white);
+  }
+  
+.clothing_imgs ul li:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+  
+.clothing_imgs ul a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink);
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+.clothing_imgs ul a:hover {
+    background-color: var(--black);
+  }
+  
+.clothing_imgs ul a::before {
+    content: "";
+    position: absolute;
+    top: -0.6rem;
+    left: -0.6rem;
+    height: 0;
+    width: 0;
+    border-top: 3px solid var(--pink);
+    border-left: 3px solid var(--pink);
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 1;
+  }
+  
+.clothing_imgs ul a::after {
+    content: "";
+    position: absolute;
+    bottom: -0.6rem;
+    right: -0.6rem;
+    width: 0;
+    height: 0;
+    border-bottom: 3px solid var(--pink);
+    border-right: 3px solid var(--pink);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+.clothing_imgs ul a:hover::before {
+    width: 126%;
+    height: 126%;
+    border-top: 3px solid var(--black);
+    border-left: 3px solid var(--black);
+    opacity: 1;
+  }
+  
+.clothing_imgs ul a:hover::after {
+    width: 126%;
+    height: 126%;
+    border-bottom: 3px solid var(--black);
+    border-right: 3px solid var(--black);
+    opacity: 1;
+  }
+
+
+.rate{color:navy}
+
+#women1{
+background-image: url(images/clothing/Woman1.jpg);}
+
+#women2{
+background-image: url(images/clothing/Woman2.jpg);}
+
+#women3{
+background-image: url(images/clothing/Woman3.jpg);}
+
+#women4{
+background-image: url(images/clothing/Woman4.jpg);}
+
+#women5{
+background-image: url(images/clothing/Woman5.jpg);}
+
+#women6{
+background-image: url(images/clothing/Woman6.jpg);}
+
+#women7{
+background-image: url(images/clothing/Woman7.jpg);}
+
+#women8{
+background-image: url(images/clothing/Woman8.jpg);}
+
+#women9{
+background-image: url(images/clothing/Woman9.jpg);}
+
+#women10{
+background-image: url(images/clothing/Woman10.jpg);}
+
+#women11{
+background-image: url(images/clothing/Woman11.jpg);}
+
+#women12{
+background-image: url(images/clothing/Woman12.jpg);}
+
+#man1{
+background-image: url(images/clothing/Man1.jpg);}
+
+#man2{
+background-image: url(images/clothing/Man2.jpg);}
+
+#man3{
+background-image: url(images/clothing/Man3.jpg);}
+
+#man4{
+background-image: url(images/clothing/Man4.jpg);}
+
+#man5{
+background-image: url(images/clothing/Man5.jpg);}
+
+#man6{
+background-image: url(images/clothing/Man6.jpg);}
+
+#man7{
+background-image: url(images/clothing/Man7.jpg);}
+
+#man8{
+background-image: url(images/clothing/Man8.jpg);}
+
+#man9{
+background-image: url(images/clothing/Man9.jpg);}
+
+#man10{
+background-image: url(images/clothing/Man10.jpg);}
+
+#man11{
+background-image: url(images/clothing/Man11.jpg);}
+
+#man12{
+background-image: url(images/clothing/Man12.jpg);}
+
+#accessories1{
+background-image: url(images/accessories/ring\(2\).jpg);}
+    
+#accessories2{
+background-image: url(images/accessories/earings2.jpg);}
+    
+#accessories3{
+background-image: url(images/accessories/bangles.jpg);}
+    
+#accessories4{
+background-image: url(images/accessories/bag.jpg);}
+    
+#accessories5{
+background-image: url(images/accessories/accessories\(8\).jpg);}
+    
+#accessories6{
+background-image: url(images/accessories/accessories\(7\).jpg);}
+    
+#accessories7{
+background-image: url(images/accessories/watch2.jpg);}
+    
+#accessories8{
+background-image: url(images/accessories/accessories\(3\).jpg);}
+    
+#accessories9{
+background-image: url(images/accessories/accessories\(1\).jpg);}
+    
+#accessories10{
+background-image: url(images/accessories/accessories\ ring.jpg);}
+    
+#accessories11{
+background-image: url(images/accessories/accessories\ men.jpg);}
+    
+#accessories12{
+background-image: url(images/accessories/accessories\ cap.jpg);}
+
+
+.brand_name, .texts{
+text-align:justify;
+padding-left: 10%}
+
+.rate{
+padding-left: 1%
+}
+
+.stars{color:var( --yellow)}
+
+
+@media only screen and (max-width: 1040px) {
+  .clothing_imgs ul{
+  width: 15rem;
+  height: 4rem;
+  top: 40%;
+  left: 20%;
+  }
+  
+  .clothings{
+  height: 56%;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 1000px) {
+  .clothings{
+  height: 60%;
+  width: 20%;
+  margin-left: 2%;
+  margin-top: 2%;
+  }
+  
+  .rate, .brand_name, .texts{
+  font-size: 1.1rem;
+  }
+  
+  
+  .clothing_imgs ul{
+  width: 14rem;
+  height: 4rem;
+  top: 45%;
+  left: 18%;
+  }
+  
+  }
+  
+  
+  
+  
+  @media only screen and (max-width: 869px) {
+  .clothings{
+  margin-top: 1%
+  }
+  
+  .clothing_imgs ul a {
+      width: 2.5rem;
+      height: 2.5rem;			
+    }
+  .clothing_imgs ul{
+  width: 9.55rem;
+  height: 2.5rem;
+  top: 40%;
+  left: 14%;
+  }
+  
+  .clothing_imgs ul li{
+  font-size: 1.3rem}
+  
+  .content{
+  font-size: 1.3rem}
+  
+  }
+  
+  
+  
+  @media only screen and (max-width: 600px) {
+  .clothings{
+  height: 50%;
+  width: 20%;
+  }
+
+.rate, .brand_name, .texts{
+font-size: 1rem}
+}
+
+  /* ========= Footer ======== */
+  .footer {
+    background-color: var(--black);
+    padding: 6rem 1rem;
+    line-height: 3rem;
+    margin-top: 70%;
+  }
+  
+  .footer-center span {
+    margin-right: 1rem;
+  }
+  
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: var(--white);
+  }
+  
+  .footer-center a:link,
+  .footer-center a:visited {
+    display: block;
+    color: var(--grey2);
+    font-size: 1.4rem;
+    transition: 0.6s;
+  }
+  
+  .footer-center a:hover {
+    color: var(--pink);
+  }
+  
+  .footer-center div {
+    color: var(--grey2);
+    font-size: 1.4rem;
+  }
+  
+  .footer-center h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+
+  
+  @media only screen and (max-width: 998px) {
+    .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 2rem;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+    }
+  }
+
+
